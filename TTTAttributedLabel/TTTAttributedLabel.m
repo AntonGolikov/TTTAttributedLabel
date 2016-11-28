@@ -870,7 +870,7 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
                 if (truncationString.length > attributedTruncationString.length) {
                     truncationString = [truncationString attributedSubstringFromRange:NSMakeRange(0, truncationString.length - attributedTruncationString.length)];
                 } else {
-                    truncationString = [truncationString attributedSubstringFromRange:NSMakeRange(0, 0)];
+                    truncationString = [[NSMutableAttributedString alloc] init];
                 }
                 [truncationString appendAttributedString:attributedTruncationString];
                 CTLineRef truncationLine = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef)truncationString);
